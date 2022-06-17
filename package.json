@@ -1,5 +1,6 @@
 {
   "dependencies": {
-    "node-fetch": "2.6.7"
+    "node-fetch": "2.6.7",
+    "simple-git": "3.7.1"
   }
 }

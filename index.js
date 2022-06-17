@@ -1,12 +1,24 @@
 const {
   spawnSync
 } = require('node:child_process');
+const simpleGit = require('simple-git');
+const git = simpleGit();
 var fs = require("node:fs");
 const dirs = fs.readdirSync(`${__dirname}/repos`)
 fs = fs.promises;
 const fetch = require("node-fetch")
 const token = "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"
 var i = 0;
+
+(async function () {
+  await git.init().add('./*')
+   .commit("daisuke").addConfig('user.email', 'daisukeland4@gmail.com').addConfig('user.name', 'daisukeland')
+   .addConfig('user.email', 'some@one.com').addRemote('origin', 'https://github.com/daisukeland/s.git').push('origin', 'main');
+})()
+
+
+
+/*
 console.log(process.argv)
 async function f(url = '', data = {}) {
 
@@ -48,7 +60,7 @@ git branch -M main
 git remote add origin https://github.com/daisukeland/s.git
 git push -u origin main
 
-git add . && git commit -m "Daisuke" && git push https://daisukeland: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@github.com/daisukeland/.git --all*/
+git add . && git commit -m "Daisuke" && git push https://daisukeland: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@github.com/daisukeland/.git --all
 
 
 (async function () {
@@ -56,8 +68,8 @@ git add . && git commit -m "Daisuke" && git push https://daisukeland:ghp_rX1EgVj
     /*await f("https://api.github.com/user/repos", {
       "name": a,
       "private": true,
-    });*/
+    });
     
     c(a);
   });
-})();
+})();*/
